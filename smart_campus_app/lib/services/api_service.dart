@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 /// Backend address. For local testing use your laptop's Wi-Fi IPv4 address.
 /// Later this will be replaced by the Render HTTPS URL.
-const String kBaseUrl = 'http://192.168.1.7:5000';
+const String kBaseUrl = 'https://android-smart-campus-management.onrender.com';
 
 class ApiException implements Exception {
   final String message;
@@ -18,7 +18,7 @@ class ApiException implements Exception {
 }
 
 class ApiService {
-  static const Duration _timeout = Duration(seconds: 60);
+  static const Duration _timeout = Duration(seconds: 90);
 
   static Future<String> chat(String question) {
     return _post('/api/chat', {'question': question});
@@ -29,6 +29,16 @@ class ApiService {
   }
     static Future<String> career(String skills, String interests) {
     return _post('/api/career', {'skills': skills, 'interests': interests});
+  }
+    /// Fire-and-forget request that wakes the free Render server.
+  static Future<void> wakeUp() async {
+    try {
+      await http
+          .get(Uri.parse('$kBaseUrl/api/health'))
+          .timeout(const Duration(seconds: 90));
+    } catch (_) {
+      // Ignore errors: this is only a warm-up request.
+    }
   }
 
   static Future<String> _post(String path, Map<String, dynamic> body) async {

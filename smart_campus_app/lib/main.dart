@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
+import 'services/api_service.dart';
 
 void main() {
+  ApiService.wakeUp(); // warm up the Render server in the background
   runApp(const SmartCampusApp());
 }
 
