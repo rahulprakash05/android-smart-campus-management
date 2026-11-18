@@ -36,7 +36,7 @@ The backend runs on the Render free tier, which sleeps after about 15 minutes of
 
 ## Install the app
 
-Download `smart-campus-release.apk` from the Releases page of this repository and open it on an Android phone. Allow installation from unknown sources if asked. The app needs an internet connection.
+Download `SmartCampus-release.apk` from the Releases page of this repository and open it on an Android phone. Allow installation from unknown sources if asked. The app needs an internet connection.
 
 The release APK is signed with the default Flutter debug key. It is meant for demonstration and is not prepared for Play Store publishing.
 
