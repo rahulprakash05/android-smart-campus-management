@@ -1,3 +1,4 @@
+
 # AI Tool Ecosystem for Smart Campus Management
 
 College PBL project: an Android app (Flutter) with a Flask REST backend
@@ -22,3 +23,4 @@ that calls the Google Gemini API.
 
 The Gemini API key lives only in the backend environment. It is never part
 of the Flutter app or this repository.
+
